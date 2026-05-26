@@ -12,7 +12,10 @@ app.use(express.json());
 
 
 app.use(cors({
-    origin: "*",
+    origin: [
+        "http://localhost:5173",
+        "https://sigmagpt-1-jktt.onrender.com"  
+    ],
     methods: ["GET", "POST", "DELETE"],
     credentials: true
 }));
