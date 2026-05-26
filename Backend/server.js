@@ -12,7 +12,10 @@ app.use(express.json());
 
 
 app.use(cors({
-    origin: "*",  
+    origin: [
+        "http://localhost:5173",
+        "https://sigmagpt-1-tvpi.onrender.com" 
+    ],
     methods: ["GET", "POST", "DELETE"],
     credentials: true
 }));
@@ -33,6 +36,39 @@ const connectDB = async() => {
         console.log("Failed to connect with Db", err);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // app.post("/test", async (req, res) => {
