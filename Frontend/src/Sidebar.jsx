@@ -48,7 +48,7 @@ function Sidebar() {
 
     const deleteThread = async (threadId) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, { method: "DELETE" });
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/thread/${threadId}`, { method: "DELETE" });
             const res = await response.json();
             console.log(res);
             setAllThreads(prev => prev.filter(thread => thread.threadId !== threadId));
