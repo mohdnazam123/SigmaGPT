@@ -10,12 +10,9 @@ const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 
-// ✅ CORS fix kiya
+
 app.use(cors({
-    origin: [
-        "http://localhost:5173",
-        "https://sigma-gpt-frontend-five.vercel.app"
-    ],
+    origin: "*",  
     methods: ["GET", "POST", "DELETE"],
     credentials: true
 }));
