@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
 import { v1 as uuidv1 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import logo from "./assets/blacklogo.png";
+
 
 function Sidebar() {
     const { allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats } = useContext(MyContext);
@@ -12,7 +12,10 @@ function Sidebar() {
 
     const getAllThreads = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/thread`);
+            const token = localStorage.getItem("token"); 
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/thread`, {
+                headers: { "Authorization": `Bearer ${token}` } 
+            });
             const res = await response.json();
             const filteredData = res.map(thread => ({ threadId: thread.threadId, title: thread.title }));
             setAllThreads(filteredData);
@@ -60,45 +63,43 @@ function Sidebar() {
         }
     };
 
-    // ✅ Logout
     const logout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("username");
         navigate("/login");
     };
-return (
-    <section className="sidebar">
-        <button onClick={createNewChat}>
-            <img src={logo} alt="gpt logo" className="logo" />
-            <span><i className="fa-solid fa-pen-to-square"></i></span>
-        </button>
 
-        <ul className="history">
-            {
-                allThreads?.map((thread, idx) => (
-                    <li key={idx}
-                        onClick={() => changeThread(thread.threadId)}
-                        className={thread.threadId === currThreadId ? "highlighted" : ""}
-                    >
-                        {thread.title}
-                        <i className="fa-solid fa-trash"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                deleteThread(thread.threadId);
-                            }}
-                        ></i>
-                    </li>
-                ))
-            }
-        </ul>
+    return (
+        <section className="sidebar">
+            <button onClick={createNewChat}>
+                <span style={{fontSize: "16px", color: "var(--text-primary)"}}>SigmaGPT</span>
+               <i className="fa-solid fa-pen-to-square" style={{fontSize: "18px", color: "var(--text-primary)"}}></i>
+            </button>
 
-        {/* ✅ Sirf sign rakhlo */}
-        <div className="sign">
-            <p>By Nazam &hearts;</p>
-        </div>
-    </section>
-);
-   
+            <ul className="history">
+                {
+                    allThreads?.map((thread, idx) => (
+                        <li key={idx}
+                            onClick={() => changeThread(thread.threadId)}
+                            className={thread.threadId === currThreadId ? "highlighted" : ""}
+                        >
+                            {thread.title}
+                            <i className="fa-solid fa-trash"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    deleteThread(thread.threadId);
+                                }}
+                            ></i>
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <div className="sign">
+                <p>By Nazam &hearts;</p>
+            </div>
+        </section>
+    );
 }
 
 export default Sidebar;

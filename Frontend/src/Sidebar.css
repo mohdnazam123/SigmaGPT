@@ -1,22 +1,25 @@
 .sidebar {
-   background-color: var(--bg-secondary);  
-    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
     height: 100vh;
     width: 320px;
-    display: flex; 
-     flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
- .sidebar button {
+.sidebar, .sidebar * {
+    color: var(--text-primary);
+}
+.sidebar button {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 8px; 
     background-color: transparent;
-     border: solid 0.5px var(--border-color);
+    border: 1px solid var(--border-color);
     cursor: pointer;
+    width: calc(100% - 20px); 
 }
 
 button:hover {
@@ -64,6 +67,7 @@ button:hover {
     font-size: 14px;
     border: solid 10px transparent;
     position: relative;
+    color: var(--text-primary); 
 }
 
 .history li:hover {
@@ -76,9 +80,8 @@ button:hover {
     margin: 10px;
     font-size: 14px;
     text-align: center;
-     border-top: solid 0.25px var(--border-color); 
-    align-items: center;
-    
+    border-top: solid 0.25px var(--border-color);
+    color: var(--text-secondary); 
 }
 
 .fa-trash {
@@ -89,7 +92,7 @@ button:hover {
 
 .history li:hover .fa-trash {
     opacity: 1;
-    color: #fff;
+    color: var(--text-primary); 
 }
 
 .fa-trash:hover {
@@ -149,4 +152,9 @@ button:hover {
     background-color: #ff4d4d !important;
     border-color: #ff4d4d !important;
     color: #fff !important;
+}
+
+.sidebar button span {
+    font-size: 16px;
+    color: var(--text-primary); 
 }
