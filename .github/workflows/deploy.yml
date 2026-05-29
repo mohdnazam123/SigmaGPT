@@ -1,0 +1,34 @@
+name: SigmaGPT CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code checkout karo
+        uses: actions/checkout@v3
+
+      - name: Node.js setup karo
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Backend dependencies install karo
+        run: |
+          cd Backend
+          npm install
+
+      - name: Frontend dependencies install karo
+        run: |
+          cd Frontend
+          npm install
+
+      - name: Frontend build karo
+        run: |
+          cd Frontend
+          npm run build
