@@ -1,4 +1,4 @@
-# 🤖 SigmaGPT — Production-Ready AI Chat Application
+#  SigmaGPT — Production-Ready AI Chat Application
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge&logo=render)](https://sigmagpt-1-jktt.onrender.com/login)
 [![MERN Stack](https://img.shields.io/badge/MERN-Stack-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org)
