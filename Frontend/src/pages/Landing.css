@@ -1,0 +1,201 @@
+.landing {
+  display: flex;
+  height: 100vh;
+  background-color: #ffffff;
+  color: #111;
+}
+
+/* Sidebar */
+.landing-sidebar {
+  width: 220px;
+  border-right: 1px solid #eee;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.logo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  display: inline-block;
+}
+
+.sidebar-item {
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #444;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+/* Main area */
+.landing-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+}
+
+.landing-logo-mobile {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.landing-auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-login {
+  background: black;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-login:hover {
+  background: #16a34a;
+}
+
+.btn-signup {
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-signup:hover {
+  border-color: #22c55e;
+  color: #16a34a;
+}
+
+/* Center content */
+.landing-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: -60px;
+}
+
+.landing-center h1 {
+  font-size: 1.9rem;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.landing-input {
+  width: 500px;
+  max-width: 90%;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: text;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: border-color 0.2s;
+}
+
+.landing-input:hover {
+  border-color: #22c55e;
+}
+
+.landing-input input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.landing-suggestions {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.landing-suggestions div {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.landing-suggestions div:hover {
+  color: #16a34a;
+}
+
+.landing-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  padding: 14px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .landing-sidebar {
+    display: none;
+  }
+
+  .landing-logo-mobile {
+    display: flex;
+  }
+
+  .landing-center h1 {
+    font-size: 1.4rem;
+    padding: 0 15px;
+  }
+
+  .landing-input {
+    width: 90%;
+  }
+
+  .landing-auth-buttons {
+    gap: 6px;
+  }
+
+  .btn-login, .btn-signup {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+  }
+}
